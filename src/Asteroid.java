@@ -71,20 +71,17 @@ public class Asteroid extends Application {
         primaryStage.setTitle("Asteroids");
 
         // Background music for home page
-        Media bgMusic = new Media(new File("/Users/pratik/Desktop/CS351/Asteroids/src/Images/background.mp3").
-                toURI().toString());
+        Media bgMusic = new Media(getClass().getResource("audio/background.mp3").toURI().toString());
         MediaPlayer bgMusicPlayer = new MediaPlayer(bgMusic);
 
         // Background music for space while playing
-        Media spaceSound = new Media(new File("/Users/pratik/Desktop/CS351/Asteroids/src/Images/spaceb.mp3").
-                toURI().toString());
+        Media spaceSound = new Media(getClass().getResource("audio/spaceb.mp3").toURI().toString());
         MediaPlayer space = new MediaPlayer(spaceSound);
 
         bgMusicPlayer.play();
 
         // Video file
-        ///Users/pratik/Desktop/CS351/Asteroids/src/Images/Home.mp4
-        Media media = new Media(new File("/Users/pratik/Desktop/CS351/Asteroids/src/Images/Home.mp4").toURI().toString());
+        Media media = new Media(getClass().getResource("Home.mp4").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         MediaView mediaView = new MediaView(mediaPlayer);
 
@@ -236,7 +233,8 @@ public class Asteroid extends Application {
                     bullet.velocity.setAngle(spaceship.rotation);
                     bulletsList.add(bullet);
 
-                    Media laserSound = new Media(Objects.requireNonNull(getClass().getResource("images/laser.mp3")).toExternalForm());
+                    //getClass().getResource("audio/laser.mp3").toURI().toString());
+                    Media laserSound = new Media(Objects.requireNonNull(getClass().getResource("audio/laser.mp3")).toExternalForm());
                     MediaPlayer laser = new MediaPlayer(laserSound);
                     laser.play();
                 }
@@ -272,7 +270,7 @@ public class Asteroid extends Application {
                         Sprite asteroid = asteroidsList.get(asteroidNum);
                         if (bullet.overlaps(asteroid)) {
                             // Explosion sound
-                            Media explode1 = new Media(Objects.requireNonNull(getClass().getResource("images/asteroid.mp3")).toExternalForm());
+                            Media explode1 = new Media(Objects.requireNonNull(getClass().getResource("audio/asteroid.mp3")).toExternalForm());
                             MediaPlayer explosion = new MediaPlayer(explode1);
                             explosion.play();
                             Sprite explode = new Sprite("images/ex.png");
@@ -345,7 +343,7 @@ public class Asteroid extends Application {
                     // Show the restart button
                     restartButtonContainer.setVisible(true);
 
-                    Media endGame = new Media(Objects.requireNonNull(getClass().getResource("images/gameOver.mp3")).toExternalForm());
+                    Media endGame = new Media(Objects.requireNonNull(getClass().getResource("audio/gameOver.mp3")).toExternalForm());
                     MediaPlayer ended = new MediaPlayer(endGame);
                     ended.play();
 
